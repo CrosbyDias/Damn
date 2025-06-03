@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vijay B Kalyan - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #88b175; /* Light background for the page */
+            display: flex;
+            flex-direction: column; /* Arrange sections vertically */
+            justify-content: flex-start; /* Align sections to the top */
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .section-container {
+            background-color: #e6e3dd; /* Main card/section background color */
+            border-radius: 15px; /* Rounded corners for the card */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px; /* Max width for desktop view */
+            width: 100%;
+            overflow: hidden; /* Hide overflowing dotted lines */
+            position: relative;
+            padding: 30px; /* Internal padding for content */
+            box-sizing: border-box;
+            margin-bottom: 30px; /* Space between sections */
+        }
+
+        /* Header Section (Common to both) */
+        .card-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Thin line below header */
+            padding-bottom: 15px;
+        }
+
+        .civil-engineer-info {
+            font-size: 0.9rem;
+            color: #333;
+            font-weight: 600;
+            padding-right: 15px; /* Space for the vertical line */
+            border-right: 1px solid rgba(0, 0, 0, 0.1); /* Vertical line */
+        }
+
+        .middle-icon {
+            font-size: 2.5rem;
+            color: #555;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .ve-logo-box {
+            background-color: #1a2a3a; /* Dark blue/black background for VE logo */
+            color: #e6e3dd; /* Light text color */
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        /* Business Card Specific Styles */
+        .main-content {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            position: relative; /* For dotted lines */
+        }
+
+        .company-name {
+            font-size: 3.5rem; /* Large font size */
+            font-weight: 800;
+            color: #333;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .civil-contractor-box {
+            background-color: #5a7d6a; /* Dark green background */
+            color: #e6e3dd; /* Light text color */
+            padding: 10px 20px;
+            border-radius: 25px; /* More rounded corners */
+            display: inline-block; /* To wrap content */
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 10px;
+            position: relative;
+            z-index: 10; /* Ensure it's above dotted lines */
+        }
+
+        /* Dotted line and circle approximations for business card */
+        .dotted-path-card, .dot-card-1, .dot-card-2, .dot-card-3, .dot-card-4 {
+            position: absolute;
+            z-index: 1;
+        }
+        .dot-card-1, .dot-card-2, .dot-card-3, .dot-card-4 {
+            width: 10px;
+            height: 10px;
+            background-color: #5a7d6a; /* Green dot color */
+            border-radius: 50%;
+        }
+        .dot-card-1 { top: 50%; left: 10%; transform: translate(-50%, -50%); }
+        .dot-card-2 { top: 70%; left: 25%; transform: translate(-50%, -50%); }
+        .dot-card-3 { top: 30%; right: 15%; transform: translate(-50%, -50%); }
+        .dot-card-4 { top: 80%; right: 5%; transform: translate(-50%, -50%); }
+
+        .dotted-path-card::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 5%;
+            width: 90%;
+            height: 60%;
+            border: 2px dashed #5a7d6a; /* Green dashed line */
+            border-radius: 50% / 30%; /* Creates an elliptical shape */
+            transform: rotate(-10deg); /* Slight rotation */
+            opacity: 0.3; /* Make it subtle */
+        }
+
+        /* Contact Info Section */
+        .contact-info {
+            margin-top: 30px;
+            text-align: left;
+            color: #333;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .contact-item i {
+            margin-right: 10px;
+            color: #5a7d6a; /* Green icon color */
+            font-size: 1.2rem;
+        }
+
+        /* Portfolio Section Specific Styles */
+        .portfolio-section {
+            padding-top: 20px;
+            position: relative;
+        }
+
+        .portfolio-title {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-content-area {
+            display: flex;
+            flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+            align-items: flex-start; /* Align items to the top */
+            gap: 20px; /* Space between columns */
+        }
+
+        .image-placeholder {
+            background-color: #ccc; /* Placeholder for the image */
+            min-height: 200px; /* Minimum height for the image area */
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+            font-size: 1.2rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden; /* Hide overflowing dotted lines */
+            flex: 1 1 55%; /* Takes up more space on larger screens */
+            min-width: 280px; /* Ensure it doesn't get too small */
+        }
+
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120%; /* Larger to ensure it covers the image */
+            height: 120%;
+            border: 2px dashed #5a7d6a; /* Green dashed line */
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotate(20deg); /* Position and rotate */
+            opacity: 0.3;
+        }
+
+        .content-text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem; /* Large "CONTENT" text */
+            font-weight: 800;
+            color: #333;
+            text-transform: uppercase;
+            line-height: 1;
+            z-index: 2; /* Above dotted lines */
+        }
+
+        .table-of-content-box {
+            background-color: #5a7d6a; /* Green background */
+            color: #e6e3dd; /* Light text */
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-flex; /* Use flex for text and icon */
+            align-items: center;
+            gap: 8px; /* Space between text and icon */
+            position: absolute;
+            top: 15px; /* Position relative to .image-placeholder */
+            right: 15px;
+            z-index: 3;
+        }
+
+        .table-of-content-box i {
+            font-size: 1.1rem;
+            color: #e6e3dd;
+        }
+
+        .portfolio-menu {
+            flex: 1 1 40%; /* Takes up less space, allows wrapping */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            min-width: 250px; /* Ensure menu doesn't get too small */
+        }
+
+        .portfolio-menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1); /* Dashed line separator */
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .portfolio-menu-item:last-child {
+            border-bottom: none; /* No border for the last item */
+        }
+
+        .page-number {
+            background-color: #5a7d6a; /* Green circle */
+            color: #e6e3dd;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* About Us Section Specific Styles */
+        .about-us-section {
+            padding-top: 20px;
+            position: relative;
+        }
+
+        .about-us-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .about-us-header .right-text {
+            font-weight: 400;
+            color: #555;
+        }
+
+        .about-us-content-area {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .about-us-text-content {
+            flex: 1 1 55%; /* Takes up more space */
+            min-width: 280px;
+            position: relative;
+        }
+
+        .year-circle {
+            background-color: #5a7d6a;
+            color: #e6e3dd;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            position: absolute;
+            top: -15px; /* Adjust position */
+            left: -15px; /* Adjust position */
+            z-index: 2;
+        }
+
+        .about-us-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #333;
+            line-height: 1;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            position: relative;
+            padding-left: 40px; /* Space for the year circle */
+        }
+
+        .about-us-title .arrow-icon {
+            background-color: #5a7d6a;
+            color: #e6e3dd;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        .about-us-subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about-us-description {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .about-us-image-placeholder {
+            background-color: #ccc;
+            min-height: 250px; /* Taller image */
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+            font-size: 1.2rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            flex: 1 1 40%; /* Takes up less space */
+            min-width: 250px;
+        }
+
+        .about-us-image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120%;
+            height: 120%;
+            border: 2px dashed #5a7d6a;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg); /* Different rotation */
+            opacity: 0.3;
+        }
+
+        /* Portfolio Experience Section Specific Styles */
+        .portfolio-experience-section {
+            padding-top: 20px;
+            position: relative;
+        }
+
+        .portfolio-experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .portfolio-experience-content-area {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .portfolio-experience-left {
+            flex: 1 1 40%; /* Takes up less space */
+            min-width: 250px;
+            position: relative;
+            padding-top: 60px; /* Added padding to push content down */
+        }
+
+        .portfolio-experience-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #333;
+            line-height: 1;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            position: relative;
+            padding-left: 60px; /* Added padding to make space for year circle */
+        }
+
+        .experience-box {
+            background-color: #5a7d6a; /* Green background */
+            color: #e6e3dd; /* Light text */
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-flex; /* Use flex for text and icon */
+            align-items: center;
+            gap: 8px; /* Space between text and icon */
+            position: absolute;
+            top: 0; /* Position relative to .portfolio-experience-left */
+            right: 0;
+            transform: translateY(0); /* Reset transform */
+            z-index: 3;
+        }
+
+        .experience-box i {
+            font-size: 1.1rem;
+            color: #e6e3dd;
+        }
+
+        .portfolio-experience-right {
+            flex: 1 1 55%; /* Takes up more space */
+            min-width: 280px;
+        }
+
+        .project-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .project-category {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px; /* Space for the dot */
+        }
+
+        .project-category::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background-color: #5a7d6a; /* Green dot */
+            border-radius: 50%;
+        }
+
+        .project-item {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 5px;
+            padding-left: 20px; /* Indent list items */
+            position: relative;
+        }
+
+        .project-item::before {
+            content: '•'; /* Bullet point */
+            position: absolute;
+            left: 5px;
+            color: #5a7d6a; /* Green bullet */
+        }
+
+        /* Dotted lines for portfolio experience section */
+        .dotted-path-experience {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .dotted-path-experience::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            width: 90%;
+            height: 80%;
+            border: 2px dashed #5a7d6a;
+            border-radius: 50% / 30%;
+            transform: rotate(10deg);
+            opacity: 0.3;
+        }
+
+        .dot-exp-1, .dot-exp-2 {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #5a7d6a;
+            border-radius: 50%;
+            z-index: 5;
+        }
+        .dot-exp-1 { top: 40%; left: 35%; transform: translate(-50%, -50%); }
+        .dot-exp-2 { top: 80%; left: 45%; transform: translate(-50%, -50%); }
+
+        /* Adjusted year-circle for portfolio experience section */
+        .portfolio-experience-section .year-circle {
+            top: 10px; /* Adjusted top position */
+            left: 10px; /* Adjusted left position */
+            position: absolute; /* Ensure it's absolutely positioned within its parent */
+            z-index: 10; /* Bring to front */
+        }
+
+        /* Our Work Section Specific Styles */
+        .our-work-section {
+            padding-top: 20px;
+            position: relative;
+        }
+
+        .our-work-title-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .our-work-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+
+        .our-work-arrow-icon {
+            background-color: #5a7d6a;
+            color: #e6e3dd;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+        }
+
+        .our-work-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center; /* Center items when they wrap */
+        }
+
+        .branding-package {
+            background-color: #f8f8f8; /* Lighter background for each package */
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            text-align: center;
+            flex: 1 1 calc(33.333% - 20px); /* Three columns, accounting for gap */
+            min-width: 180px; /* Minimum width for each package */
+            max-width: 200px; /* Max width to keep them somewhat uniform */
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .branding-package img {
+            width: 100%;
+            height: 150px; /* Fixed height for consistency */
+            object-fit: cover; /* Cover the area, crop if needed */
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .branding-package-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .branding-package-text .arrow-icon {
+            background-color: #5a7d6a;
+            color: #e6e3dd;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        /* Dotted lines for Our Work section */
+        .dotted-path-our-work {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .dotted-path-our-work::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 90%;
+            height: 90%;
+            border: 2px dashed #5a7d6a;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotate(5deg);
+            opacity: 0.2;
+        }
+
+        /* Expertise Section Specific Styles */
+        .expertise-section {
+            padding-top: 20px;
+            position: relative;
+        }
+
+        .expertise-header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .expertise-content-area {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .expertise-left-content {
+            flex: 1 1 55%; /* Takes up more space */
+            min-width: 280px;
+            position: relative;
+            padding-top: 60px; /* Space for the top box */
+        }
+
+        .expertise-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #333;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .expertise-title-box {
+            background-color: #5a7d6a;
+            color: #e6e3dd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateY(-100%); /* Position above the title */
+            z-index: 3;
+        }
+
+        .expertise-title-box i {
+            font-size: 1.1rem;
+            color: #e6e3dd;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .skills-list li {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skills-list li::before {
+            content: '•';
+            position: absolute;
+            left: 5px;
+            color: #5a7d6a;
+        }
+
+        .expertise-right-content {
+            flex: 1 1 40%; /* Takes up less space */
+            min-width: 250px;
+        }
+
+        .expertise-image-placeholder {
+            background-color: #ccc;
+            min-height: 200px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+            font-size: 1.2rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .expertise-image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120%;
+            height: 120%;
+            border: 2px dashed #5a7d6a;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotate(15deg);
+            opacity: 0.3;
+        }
+
+        .core-values-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .core-values-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .core-value-item {
+            background-color: #5a7d6a;
+            color: #e6e3dd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            flex: 1 1 auto; /* Allow items to grow and shrink */
+            min-width: 120px; /* Minimum width for buttons */
+        }
+        .core-value-item:nth-child(odd) {
+             background-color: #d1d1c9; /* Lighter shade for alternating buttons */
+             color: #333;
+        }
+
+        /* Dotted lines for Expertise section */
+        .dotted-path-expertise {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .dotted-path-expertise::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 90%;
+            height: 90%;
+            border: 2px dashed #5a7d6a;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotate(-5deg);
+            opacity: 0.2;
+        }
+
+        /* Our Process Section Specific Styles */
+        .our-process-section {
+            padding-top: 20px;
+            position: relative;
+        }
+
+        .our-process-header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .process-main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding-top: 40px; /* Space for the top elements */
+        }
+
+        .initiating-work-box {
+            background-color: #5a7d6a;
+            color: #e6e3dd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateY(-100%); /* Position above the title */
+            z-index: 3;
+        }
+
+        .initiating-work-box i {
+            font-size: 1.1rem;
+            color: #e6e3dd;
+        }
+
+        .process-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: #333;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .vb-circle {
+            background-color: #5a7d6a;
+            color: #e6e3dd;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            position: absolute;
+            top: 20px; /* Adjust position */
+            left: 20px; /* Adjust position */
+            z-index: 10;
+        }
+
+        .process-steps-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            margin-top: 30px;
+            position: relative;
+            padding-bottom: 20px; /* Space for the line */
+        }
+
+        .process-steps-container::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #5a7d6a; /* Green line */
+            z-index: 1;
+        }
+
+        .process-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 2; /* Above the line */
+            padding: 0 5px; /* Small padding to prevent overlap */
+        }
+
+        .step-number {
+            background-color: #5a7d6a;
+            color: #e6e3dd;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 auto 15px; /* Center and space below */
+        }
+
+        .step-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .step-description {
+            font-size: 0.8rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Dotted lines for Our Process section */
+        .dotted-path-process {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .dotted-path-process::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 90%;
+            height: 90%;
+            border: 2px dashed #5a7d6a;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotate(10deg);
+            opacity: 0.2;
+        }
+
+        /* Let's Collaborate Section Specific Styles */
+        .collaborate-section {
+            padding-top: 20px;
+            position: relative;
+        }
+
+        .collaborate-header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .collaborate-content-area {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .collaborate-left-content {
+            flex: 1 1 55%; /* Takes up more space */
+            min-width: 280px;
+            position: relative;
+            padding-top: 60px; /* Space for the top box */
+        }
+
+        .collaborate-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #333;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .collaborate-title-box {
+            background-color: #5a7d6a;
+            color: #e6e3dd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateY(-100%); /* Position above the title */
+            z-index: 3;
+        }
+
+        .collaborate-title-box i {
+            font-size: 1.1rem;
+            color: #e6e3dd;
+        }
+
+        .collaborate-year {
+            background-color: #5a7d6a;
+            color: #e6e3dd;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .collaborate-website {
+            font-size: 1rem;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .collaborate-right-content {
+            flex: 1 1 40%; /* Takes up less space */
+            min-width: 250px;
+        }
+
+        .collaborate-images {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .collaborate-image {
+            width: 48%; /* Roughly half, accounting for gap */
+            height: 120px; /* Fixed height for consistency */
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .collaborate-description {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .contact-us-button {
+            background-color: #5a7d6a;
+            color: #e6e3dd;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-us-button:hover {
+            background-color: #4a6d5a;
+        }
+
+        /* Thank You Section Specific Styles */
+        .thank-you-section {
+            padding-top: 20px;
+            position: relative;
+        }
+
+        .thank-you-header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .thank-you-main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding-top: 40px; /* Space for the top elements */
+        }
+
+        .thank-you-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: #333;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            position: relative;
+            padding-left: 80px; /* Added padding to make space for year circle */
+        }
+
+        .thank-you-attention-box {
+            background-color: #5a7d6a;
+            color: #e6e3dd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateY(-100%);
+            z-index: 3;
+        }
+
+        .thank-you-attention-box i {
+            font-size: 1.1rem;
+            color: #e6e3dd;
+        }
+
+        .thank-you-year {
+            background-color: #5a7d6a;
+            color: #e6e3dd;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            position: absolute;
+            top: 20px; /* Adjusted top position */
+            left: 0; /* Adjusted left position to be slightly off-center */
+            z-index: 10;
+        }
+
+        .thank-you-contact-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(0, 0, 0, 0.1);
+        }
+
+        .thank-you-contact-group {
+            flex: 1 1 48%; /* Two columns */
+            margin-bottom: 15px;
+        }
+
+        .thank-you-contact-group:nth-child(1) {
+            flex: 1 1 100%; /* "For More Information" takes full width */
+            text-align: left;
+        }
+
+        .thank-you-contact-group:nth-child(2),
+        .thank-you-contact-group:nth-child(3),
+        .thank-you-contact-group:nth-child(4) {
+             flex: 1 1 calc(33.333% - 10px); /* Three columns for phone, mail, address */
+             min-width: 150px; /* Ensure they don't get too small */
+        }
+
+
+        .thank-you-label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .thank-you-value {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        /* Dotted lines for Thank You section */
+        .dotted-path-thank-you {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .dotted-path-thank-you::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 90%;
+            height: 90%;
+            border: 2px dashed #5a7d6a;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotate(-10deg);
+            opacity: 0.2;
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .section-container {
+                padding: 20px;
+            }
+            .company-name {
+                font-size: 2.5rem;
+            }
+            .civil-contractor-box {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+            .civil-engineer-info {
+                font-size: 0.8rem;
+            }
+            .ve-logo-box {
+                font-size: 1.5rem;
+                padding: 8px 15px;
+            }
+            .contact-info {
+                font-size: 0.9rem;
+            }
+            .portfolio-content-area, .about-us-content-area, .portfolio-experience-content-area, .our-work-gallery, .expertise-content-area, .process-steps-container, .collaborate-content-area, .thank-you-contact-details {
+                flex-direction: column; /* Stack columns on smaller screens */
+                align-items: center;
+            }
+            .image-placeholder, .portfolio-menu, .about-us-text-content, .about-us-image-placeholder,
+            .portfolio-experience-left, .portfolio-experience-right, .branding-package,
+            .expertise-left-content, .expertise-right-content, .process-step,
+            .collaborate-left-content, .collaborate-right-content,
+            .thank-you-contact-group {
+                width: 100%; /* Take full width */
+                min-width: unset; /* Remove min-width constraint */
+                max-width: unset; /* Remove max-width constraint */
+                text-align: center; /* Center text for stacked items */
+            }
+            .content-text-overlay {
+                font-size: 3rem;
+            }
+            .table-of-content-box {
+                top: 10px;
+                right: 10px;
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+            .about-us-title, .portfolio-experience-title, .expertise-title, .process-title, .collaborate-title, .thank-you-title {
+                font-size: 3rem;
+                padding-left: 0; /* Remove padding when year circle is not offset */
+                text-align: center;
+            }
+            .year-circle {
+                position: static; /* Position normally */
+                margin: 0 auto 15px; /* Center and add margin */
+            }
+            .about-us-title .arrow-icon {
+                position: static;
+                transform: none;
+                margin-left: 10px;
+            }
+            .about-us-subtitle, .about-us-description {
+                text-align: center;
+            }
+            .experience-box, .expertise-title-box, .initiating-work-box, .collaborate-title-box, .thank-you-attention-box {
+                position: static;
+                transform: none;
+                margin: 10px auto;
+            }
+            .portfolio-experience-title {
+                font-size: 3rem;
+                padding-left: 0; /* Adjust padding for smaller screens */
+                text-align: center;
+            }
+            .portfolio-experience-section .year-circle {
+                position: static; /* Reset to static for smaller screens */
+                margin: 0 auto 15px; /* Center and add margin */
+            }
+            .project-category, .skills-list-title {
+                text-align: center;
+                padding-left: 0;
+            }
+            .project-category::before, .skills-list li::before {
+                display: none;
+            }
+            .project-item, .skills-list li {
+                text-align: center;
+                padding-left: 0;
+            }
+            .project-item::before {
+                display: none;
+            }
+            .our-work-title-container {
+                justify-content: center;
+            }
+            .core-values-grid {
+                justify-content: center;
+            }
+            .vb-circle {
+                position: static;
+                margin: 0 auto 15px;
+            }
+            .process-steps-container::before {
+                display: none; /* Hide horizontal line on small screens */
+            }
+            .step-number {
+                margin: 15px auto; /* Add vertical margin for stacked steps */
+            }
+            .step-title, .step-description {
+                text-align: center;
+            }
+            .collaborate-year {
+                position: static;
+                margin: 0 auto 15px;
+            }
+            .collaborate-website, .contact-us-button {
+                text-align: center;
+                display: block; /* Make button block for centering */
+                margin: 10px auto;
+            }
+            .collaborate-images {
+                flex-direction: column;
+                align-items: center;
+            }
+            .collaborate-image {
+                width: 80%; /* Adjust width for stacked images */
+                height: auto; /* Allow height to adjust */
+            }
+            .thank-you-year {
+                position: static;
+                margin: 0 auto 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-container {
+                padding: 15px;
+            }
+            .company-name {
+                font-size: 2rem;
+            }
+            .civil-contractor-box {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+            .card-header-top {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+            .civil-engineer-info {
+                width: 100%;
+                border-right: none;
+                padding-right: 0;
+                margin-bottom: 10px;
+            }
+            .middle-icon, .ve-logo-box {
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+            }
+            .ve-logo-box {
+                padding: 10px;
+            }
+            .dot-card-1, .dot-card-2, .dot-card-3, .dot-card-4 {
+                width: 8px;
+                height: 8px;
+            }
+            .content-text-overlay {
+                font-size: 2.5rem;
+            }
+            .portfolio-menu-item {
+                font-size: 1rem;
+            }
+            .about-us-title, .portfolio-experience-title, .expertise-title, .process-title, .collaborate-title, .thank-you-title {
+                font-size: 2.5rem;
+            }
+            .about-us-subtitle {
+                font-size: 1rem;
+            }
+            .about-us-description {
+                font-size: 0.9rem;
+            }
+            .our-work-title {
+                font-size: 1.5rem;
+            }
+            .branding-package img {
+                height: 120px;
+            }
+            .branding-package-text {
+                font-size: 0.8rem;
+            }
+            .core-value-item {
+                font-size: 0.8rem;
+                padding: 6px 10px;
+            }
+            .step-title {
+                font-size: 0.9rem;
+            }
+            .step-description {
+                font-size: 0.7rem;
+            }
+            .collaborate-image {
+                height: 100px; /* Further reduce image height on very small screens */
+            }
+            .thank-you-label, .thank-you-value {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section-container">
+        <div class="dotted-path-card"></div>
+        <div class="dot-card-1"></div>
+        <div class="dot-card-2"></div>
+        <div class="dot-card-3"></div>
+        <div class="dot-card-4"></div>
+
+        <div class="card-header-top">
+            <div class="civil-engineer-info">
+                Civil Engineer : <br>
+                <span style="font-weight: 700;">Vijay B Kalyan</span>
+            </div>
+            <div class="middle-icon">
+                <i class="fas fa-hammer"></i> </div>
+            <div class="ve-logo-box">
+                VE
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="company-name">
+                VIJAY B ENTERPRISES
+            </div>
+            <div class="civil-contractor-box">
+                Civil Engineer and Contractor
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>+ 9175060 93315 / 98211 31157</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>vijaybkalyan@gmail.com</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-container portfolio-section">
+        <div class="card-header-top">
+            <div class="civil-engineer-info">
+                Civil Engineer : <br>
+                <span style="font-weight: 700;">Vijay B Kalyan</span>
+            </div>
+            <div class="middle-icon">
+                <i class="fas fa-hammer"></i> </div>
+            <div class="ve-logo-box">
+                VE
+            </div>
+        </div>
+
+        <div class="portfolio-title">
+            Vijay B Enterprises - Portfolio
+        </div>
+
+        <div class="portfolio-content-area">
+            <div class="image-placeholder">
+                <div class="content-text-overlay">
+                    CONTENT
+                </div>
+                <div class="table-of-content-box">
+                    Table Of <i class="fas fa-arrow-up"></i>
+                </div>
+            </div>
+            <ul class="portfolio-menu">
+                <li class="portfolio-menu-item">
+                    <span>About us</span>
+                    <span class="page-number">03.</span>
+                </li>
+                <li class="portfolio-menu-item">
+                    <span>Portfolio</span>
+                    <span class="page-number">04.</span>
+                </li>
+                <li class="portfolio-menu-item">
+                    <span>Skills & Expertise</span>
+                    <span class="page-number">05.</span>
+                </li>
+                <li class="portfolio-menu-item">
+                    <span>Testimonials</span>
+                    <span class="page-number">06.</span>
+                </li>
+                <li class="portfolio-menu-item">
+                    <span>Process</span>
+                    <span class="page-number">07.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section-container about-us-section">
+        <div class="card-header-top">
+            <div class="civil-engineer-info">
+                Civil Engineer : <br>
+                <span style="font-weight: 700;">Vijay B Kalyan</span>
+            </div>
+            <div class="middle-icon">
+                <i class="fas fa-hammer"></i> </div>
+            <div class="ve-logo-box">
+                VE
+            </div>
+        </div>
+
+        <div class="about-us-header">
+            <span>Vijay B Enterprises - Portfolio</span>
+            <span class="right-text">@reallygreatsite</span>
+        </div>
+
+        <div class="about-us-content-area">
+            <div class="about-us-text-content">
+                <div class="year-circle">2025</div>
+                <h2 class="about-us-title">
+                    ABOUT US
+                    <span class="arrow-icon"><i class="fas fa-arrow-up"></i></span>
+                </h2>
+                <p class="about-us-subtitle">
+                    Platform For Boundaryless Construction <br>
+                    Technology Under One Roof .
+                </p>
+                <p class="about-us-description">
+                    I'm Vijay B. Kalyan, a Civil Engineer specializing in Industrial <br>
+                    and Commercial Construction.
+                </p>
+            </div>
+            <div class="about-us-image-placeholder">
+                <img src="https://placehold.co/250x250/cccccc/333333?text=Image" alt="About Us Image" style="width:100%; height:100%; object-fit:cover; border-radius:10px;" onerror="this.onerror=null;this.src='https://placehold.co/250x250/cccccc/333333?text=Image';">
+            </div>
+        </div>
+    </div>
+
+    <div class="section-container portfolio-experience-section">
+        <div class="card-header-top">
+            <div class="civil-engineer-info">
+                Civil Engineer : <br>
+                <span style="font-weight: 700;">Vijay B Kalyan</span>
+            </div>
+            <div class="middle-icon">
+                <i class="fas fa-hammer"></i> </div>
+            <div class="ve-logo-box">
+                VE
+            </div>
+        </div>
+
+        <div class="portfolio-experience-header">
+            <span>Vijay B Enterprises - Portfolio</span>
+            </div>
+
+        <div class="portfolio-experience-content-area">
+            <div class="portfolio-experience-left">
+                <div class="dotted-path-experience"></div>
+                <div class="dot-exp-1"></div>
+                <div class="dot-exp-2"></div>
+                <div class="year-circle">2025</div>
+                <div class="experience-box">
+                    Experience <i class="fas fa-arrow-up"></i>
+                </div>
+                <h2 class="portfolio-experience-title">
+                    PORTFOLIO
+                </h2>
+            </div>
+            <div class="portfolio-experience-right">
+                <ul class="project-list">
+                    <li class="project-category">Sole Contructions</li>
+                    <li class="project-item">Arvind Gandbhir High School (Extended Second Floor) 15,000 sq.ft - Jogeshwari (East)</li>
+                    <li class="project-item">ANN's Aboud Bungalow - Marol, Andheri East</li>
+                    <li class="project-item">Bungalow In Kamal Amrohi Studio</li>
+                    <li class="project-category">Sub Contractors</li>
+                    <li class="project-item">Jyoti Industries (Nirali Sinks) 60,000 sq.ft - Palghar</li>
+                    <li class="project-item">Tokyo Plast 50,000 sq.ft - Khaccigam (Daman)</li>
+                    <li class="project-item">Ratan Plastic 30,000 sq.ft - Somnath, Dadar</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-container our-work-section">
+        <div class="card-header-top">
+            <div class="civil-engineer-info">
+                Civil Engineer : <br>
+                <span style="font-weight: 700;">Vijay B Kalyan</span>
+            </div>
+            <div class="middle-icon">
+                <i class="fas fa-hammer"></i> </div>
+            <div class="ve-logo-box">
+                VE
+            </div>
+        </div>
+
+        <div class="our-work-title-container">
+            <h2 class="our-work-title">Our Work</h2>
+            <div class="our-work-arrow-icon">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+        </div>
+
+        <div class="our-work-gallery">
+            <div class="branding-package">
+                <img src="https://placehold.co/180x150/cccccc/333333?text=ARTISAN" alt="Branding Package 1 Image" onerror="this.onerror=null;this.src='https://placehold.co/180x150/cccccc/333333?text=Image';">
+                <div class="branding-package-text">
+                    Branding Package 1 <span class="arrow-icon"><i class="fas fa-arrow-up"></i></span>
+                </div>
+            </div>
+            <div class="branding-package">
+                <img src="https://placehold.co/180x150/cccccc/333333?text=ANTISAR" alt="Branding Package 2 Image" onerror="this.onerror=null;this.src='https://placehold.co/180x150/cccccc/333333?text=Image';">
+                <div class="branding-package-text">
+                    Branding Package 2 <span class="arrow-icon"><i class="fas fa-arrow-up"></i></span>
+                </div>
+            </div>
+            <div class="branding-package">
+                <img src="https://placehold.co/180x150/cccccc/333333?text=MARINE+COLLAGEN" alt="Branding Package 3 Image" style="width:100%; height:100%; object-fit:cover; border-radius:10px;" onerror="this.onerror=null;this.src='https://placehold.co/180x150/cccccc/333333?text=Image';">
+                <div class="branding-package-text">
+                    Branding Package 3 <span class="arrow-icon"><i class="fas fa-arrow-up"></i></span>
+                </div>
+            </div>
+        </div>
+         <div class="dotted-path-our-work"></div>
+    </div>
+
+    <div class="section-container expertise-section">
+        <div class="card-header-top">
+            <div class="civil-engineer-info">
+                Civil Engineer : <br>
+                <span style="font-weight: 700;">Vijay B Kalyan</span>
+            </div>
+            <div class="middle-icon">
+                <i class="fas fa-hammer"></i> </div>
+            <div class="ve-logo-box">
+                VE
+            </div>
+        </div>
+
+        <div class="expertise-header-info">
+            <span>Vijay B Enterprises - Portfolio</span>
+            </div>
+
+        <div class="expertise-content-area">
+            <div class="expertise-left-content">
+                <div class="dotted-path-expertise"></div>
+                <div class="expertise-title-box">
+                    As a Civil Engineer <br> and Contractors <i class="fas fa-arrow-up"></i>
+                </div>
+                <h2 class="expertise-title">
+                    EXPERTISE
+                </h2>
+                <h3 class="skills-list-title">Skills :</h3>
+                <ul class="skills-list">
+                    <li>NEW CONSTRUCTION</li>
+                    <li>REPAIR & MAINTENANCE</li>
+                    <li>WATERPROOFING</li>
+                    <li>PAINTING</li>
+                </ul>
+            </div>
+            <div class="expertise-right-content">
+                <div class="expertise-image-placeholder">
+                     <img src="https://placehold.co/250x200/cccccc/333333?text=Image" alt="Expertise Image" style="width:100%; height:100%; object-fit:cover; border-radius:10px;" onerror="this.onerror=null;this.src='https://placehold.co/250x200/cccccc/333333?text=Image';">
+                </div>
+                <h3 class="core-values-title">Core Values :</h3>
+                <div class="core-values-grid">
+                    <div class="core-value-item">Accountability</div>
+                    <div class="core-value-item">Collaboration</div>
+                    <div class="core-value-item">Safety First</div>
+                    <div class="core-value-item">Quality & Precision</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-container our-process-section">
+        <div class="card-header-top">
+            <div class="civil-engineer-info">
+                Civil Engineer : <br>
+                <span style="font-weight: 700;">Vijay B Kalyan</span>
+            </div>
+            <div class="middle-icon">
+                <i class="fas fa-hammer"></i> </div>
+            <div class="ve-logo-box">
+                VE
+            </div>
+        </div>
+
+        <div class="our-process-header-info">
+            <span>Vijay B Enterprises - Portfolio</span>
+            <span class="right-text">+ 1</span> </div>
+
+        <div class="process-main-content">
+            <div class="dotted-path-process"></div>
+            <div class="initiating-work-box">
+                Initiating The Work <i class="fas fa-arrow-up"></i>
+            </div>
+            <h2 class="process-title">OUR PROCESS</h2>
+            <div class="vb-circle">VB</div>
+
+            <div class="process-steps-container">
+                <div class="process-step">
+                    <div class="step-number">01.</div>
+                    <div class="step-title">Initial Consultation & Site Visit</div>
+                    <div class="step-description">begin by understanding client needs and assessing the project site.</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02.</div>
+                    <div class="step-title">Planning & Design</div>
+                    <div class="step-description">develop detailed layouts, drawings, and cost estimates.</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03.</div>
+                    <div class="step-title">Approvals & Permits</div>
+                    <div class="step-description">assist in securing necessary legal and municipal clearances for smooth execution.</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04.</div>
+                    <div class="step-title">Construction & Supervision</div>
+                    <div class="step-description">Our skilled team executes the work with quality materials and strict site supervision.</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">05.</div>
+                    <div class="step-title">Final Inspection & Handover</div>
+                    <div class="step-description">final checks and deliver a ready-to-use project with full client satisfaction.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-container collaborate-section">
+        <div class="card-header-top">
+            <div class="civil-engineer-info">
+                Civil Engineer : <br>
+                <span style="font-weight: 700;">Vijay B Kalyan</span>
+            </div>
+            <div class="middle-icon">
+                <i class="fas fa-hammer"></i> </div>
+            <div class="ve-logo-box">
+                VE
+            </div>
+        </div>
+
+        <div class="collaborate-header-info">
+            <span>Vijay B Enterprises - Portfolio</span>
+            </div>
+
+        <div class="collaborate-content-area">
+            <div class="collaborate-left-content">
+                <h2 class="collaborate-title">
+                    LET'S <br> COLLABORATE
+                </h2>
+                <div class="collaborate-title-box">
+                    Your Design Begins Here. <i class="fas fa-arrow-up"></i>
+                </div>
+                <div class="collaborate-year">2025</div>
+                <div class="collaborate-website">www.reallygreatsite.com</div>
+            </div>
+            <div class="collaborate-right-content">
+                <div class="collaborate-images">
+                    <img src="https://placehold.co/150x120/cccccc/333333?text=Image+1" alt="Collaborate Image 1" class="collaborate-image" onerror="this.onerror=null;this.src='https://placehold.co/150x120/cccccc/333333?text=Image+1';">
+                    <img src="https://placehold.co/150x120/cccccc/333333?text=Image+2" alt="Collaborate Image 2" class="collaborate-image" onerror="this.onerror=null;this.src='https://placehold.co/150x120/cccccc/333333?text=Image+2';">
+                </div>
+                <p class="collaborate-description">
+                    Let's transform your creative challenges into stunning solutions that set you apart. Whether you're a startup, an established business, or an individual with a passion project.
+                </p>
+                <a href="#" class="contact-us-button">Contact Us Today !</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-container thank-you-section">
+        <div class="card-header-top">
+            <div class="civil-engineer-info">
+                Civil Engineer : <br>
+                <span style="font-weight: 700;">Vijay B Kalyan</span>
+            </div>
+            <div class="middle-icon">
+                <i class="fas fa-hammer"></i> </div>
+            <div class="ve-logo-box">
+                VE
+            </div>
+        </div>
+
+        <div class="thank-you-header-info">
+            <span>Vijay B Enterprises</span>
+            </div>
+
+        <div class="thank-you-main-content">
+            <div class="dotted-path-thank-you"></div>
+            <div class="thank-you-year">2025</div>
+            <div class="thank-you-attention-box">
+                For Your Attention <i class="fas fa-arrow-up"></i>
+            </div>
+            <h2 class="thank-you-title">THANK YOU</h2>
+
+            <div class="thank-you-contact-details">
+                <div class="thank-you-contact-group">
+                    <div class="thank-you-label">For More Information :</div>
+                </div>
+                <div class="thank-you-contact-group">
+                    <div class="thank-you-label">Phone</div>
+                    <div class="thank-you-value">+ 91 75060 93315</div>
+                    <div class="thank-you-value">+ 91 98211 31157</div>
+                </div>
+                <div class="thank-you-contact-group">
+                    <div class="thank-you-label">Mail</div>
+                    <div class="thank-you-value">vijaybkalyan@gmail.com</div>
+                </div>
+                <div class="thank-you-contact-group">
+                    <div class="thank-you-label">Address</div>
+                    <div class="thank-you-value">3B/10 Bilquies Apt, May Rose CHS, Near Sataya Sai Baba Trust, Mahakali Caves Road, Andheri East.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
